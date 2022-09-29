@@ -11,7 +11,7 @@ if ($conn){
     echo "Database connected successfuly";
 }
 else{
-    echo"Error occured";<div class=""></div>
+    echo"Error occured";
 }
 
 ?>
