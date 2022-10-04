@@ -31,55 +31,44 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header bg-dark text-white text-center">
-                            <span>Enrolled Students</span>
+                            <span>Subscribers</span>
                             <span class="float-right">
-                                <a href="addstudents.php" class="btn btn-secondary btn -sm">add student</a>
+                                <a href="addstudents.php" class="btn btn-secondary btn -sm">Add Subscriber</a>
                             </span>
                         </div>
                         <div class="card-body">
                             <table class="table table-stripped table-hover  ">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
-                                        <th>Name</th>
-                                        <th>Reg Number</th>
-                                        <th>Phone</th>
+                                        <th>No</th>                                       
                                         <th>Email</th>
-                                        <th>course</th>
-                                        <th>Enrolled On</th>
-                                        <th>Action</th>
+                                        <th>Subscribed At</th> 
+                                        <th>Action</th>                                       
                                     </tr>
                                 </thead>
 
                                 <tbody>
-
-                                    <?php 
-                                    $count=1;
-                                    while($row=mysqli_fetch_array($fetchEnrolledStudents)) {?>
+                                    <?php while($row=mysqli_fetch_array($fetchEnrolledStudents)) {?>
 
                                         <tr>
-                                        <td><?php echo $count?></td>
-                                        <td><?php echo $row['name']?></td>
-                                        <td><?php echo $row['reg_number']?></td>
-                                        <td><?php echo $row['phone']?></td>
-                                        <td><?php echo $row['email']?></td>
-                                        <td><?php echo $row['course']?></td>
+                                        <td><?php echo $row['id']?></td>
+                                        <td><?php echo $row['email']?></td>                                        
                                         <td><?php echo $row['created_at']?></td>
                                         <td>
                                             <a href="editstudents.php?id=<?php echo $row['id']?>" class="btn btn-primary btn-sm">
                                                 <i class="fa fa-edit"></i>
                                             </a>
-                                            <a href="viewstudents.php?id=<?php echo $row['id']?>" class="btn btn-success btn-sm">
+                                            <a href="" class="btn btn-success btn-sm">
                                             <i class="fa fa-eye"></i>
                                             </a>
-                                            <a href="deletestudent.php?id=<?php echo $row['id']?>" class="btn btn-danger btn-sm">
+                                            <a href="" class="btn btn-danger btn-sm">
                                             <i class="fa fa-trash"></i>
                                             </a>
                                         </td>
                                     </tr>
 
 
-                                    <?php $count++; }?>
+                                    <?php }?>
                                 </tbody>
                             </table>
                         </div>

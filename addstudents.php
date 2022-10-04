@@ -39,6 +39,7 @@
             if($queryData)
             {
                 echo"Data submitted succesfuly!";
+                header('location:students.php');
             }
             else{
                 echo"Error";
