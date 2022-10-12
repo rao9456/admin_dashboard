@@ -22,8 +22,23 @@
      require_once('dbconnection.php');
 
 
-     // isset function
-     if(isset($_POST['updateMessage'])){
+     // fetch student records using where
+    $fetchMessages = mysqli_query($conn,"SELECT * FROM messages WHERE id='".$_GET['id']."' ");
+    while($row = mysqli_fetch_array($fetchMessages)){
+        $studentId= $row['id'];
+        $studentName= $row['name'];
+        $studentEmail= $row['email'];
+        $studentPhone= $row['phone'];
+        $studentSubject= $row['subject'];
+        $studentMessage= $row['message'];
+       
+    }
+
+    ?>
+
+    <?php
+    // isset function
+    if(isset($_POST['updateMessage'])){
 
         // fetch data
         $name=$_POST["name"];
@@ -31,7 +46,6 @@
         $email=$_POST["email"];
         $subject=$_POST["subject"];
         $message=$_POST["message"];
-
         // sql to update
         $updateMessage = mysqli_query($conn,"UPDATE messages SET name='$name',phone='$phone',email=' $email',subject=' $subject',message='$message' WHERE id='".$_GET['id']."' ");
         if($updateMessage){
@@ -58,13 +72,13 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="name">Name</label>
-                                            <input type="text" class="form-control" name="name" id="" value="<?php echo $name?>">
+                                            <input type="text" class="form-control" name="name" id="" value="<?php echo $studentName?>">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                         <label for="email">Email</label>
-                                        <input type="email" class="form-control" name="email" id="" value="<?php echo $email?>" >
+                                        <input type="email" class="form-control" name="email" id="" value="<?php echo $studentEmail?>" >
                                         </div>
                                     </div>
                                 </div>
@@ -72,13 +86,13 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="phone">Phone</label>
-                                            <input type="tel" class="form-control" name="phone" id="" value="<?php echo $phone?>">
+                                            <input type="tel" class="form-control" name="phone" id="" value="<?php echo $studentPhone?>">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="subject">Subject</label>
-                                            <input type="text" class="form-control" name="subject" id="" value="<?php echo $subject?>">
+                                            <input type="text" class="form-control" name="subject" id="" value="<?php echo $studentSubject?>">
                                         </div>
                                     </div>
                                 </div>
@@ -86,7 +100,7 @@
                                     <div class="col-lg-12">
                                     <div class="form-group">
                                             <label for="message">Message</label>
-                                            <input type="text" class="form-control" name="message" id="" value="<?php echo $message?>">
+                                            <input type="text" class="form-control" name="message" id="" value="<?php echo $studentMessage?>">
                                         </div>
                                     </div>
                                    
@@ -107,3 +121,4 @@
 <script src="jquery.min.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
 </body>
+</html>
