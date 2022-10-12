@@ -3,7 +3,7 @@
 $SERVER = 'localhost';
 $USERNAME = 'root';
 $PASSWORD = '';
-$DATABASE = 'zalegram';
+$DATABASE = 'zalegram2';
 
 $conn = mysqli_connect($SERVER,$USERNAME,$PASSWORD,$DATABASE);
 
